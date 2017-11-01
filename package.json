@@ -4,11 +4,18 @@
   "description": "A simple and awesome library for Mailchimp API V3 written in Js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayorcoded/awesome-mailchimp-v3-api-js.git"
   },
   "keywords": [
     "awesome-mailchimp"
   ],
   "author": "Mayowa Tudonu",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
 }
