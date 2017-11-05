@@ -1,10 +1,10 @@
 'use strict';
 
-class MailchimLists{
-    /*
-    constructor (mailchimpConfig){
-        this.mailchimp = mailchimpConfig;
-    }*/
+ export default class MailchimLists{
+
+    constructor (mailchimpClient){
+        this.mailchimp = mailchimpClient;
+    }
 
     create(body){
         if(this.requiredFieldIsComplete(body))
@@ -21,6 +21,3 @@ class MailchimLists{
         return true;
     }
 }
-
-
-exports.default = new MailchimLists();

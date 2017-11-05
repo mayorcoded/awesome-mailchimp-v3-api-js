@@ -1,7 +1,8 @@
 const maichimplist = require('../src/MailchimpLists').default;
 
+
 test('validate empty fields', () =>{
-    expect(() =>{ maichimplist.requiredFieldIsComplete({})}).toThrow();
+    expect(() =>{ new maichimplist.requiredFieldIsComplete({}) }).toThrow();
 });
 
 test('validate one field', () =>{
