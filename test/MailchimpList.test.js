@@ -1,28 +1,18 @@
-const maichimplist = require('../src/MailchimpLists').default;
+import MailchimpLists from '../src/MailchimpLists';
+import MailChimp from '../src/index';
 
+let list = new  MailchimpLists(new MailChimp('mayowa.tuodnu','some key'));
 
-test('validate empty fields', () =>{
-    expect(() =>{ new maichimplist.requiredFieldIsComplete({}) }).toThrow();
+test('validate create method empty parameter ',() => {
+    expect(()=>{
+        list.create()
+    }).toThrow('Body of list is required');
 });
 
-test('validate one field', () =>{
-   expect( () => {
-       maichimplist.requiredFieldIsComplete({name:'Mayowa'})
-   }).toThrow();
-});
-
-test('validate two fields', ()=>{
+test('validate create method empty body parameter', () => {
    expect(()=>{
-       maichimplist.requiredFieldIsComplete({name:'Mayowa',contact:'1'})
-   }).toThrow();
+       list.create({name:'M',contact:'jd',permission_reminder:'jk',campaign_defaults:'ef'})
+   }).toThrow(/Hey/)
 });
 
-test('validate three fields', ()=>{
-   expect(()=>{
-       maichimplist.requiredFieldIsComplete({name:'Mayowa',contact:'1',permission_reminder:'yes'})
-   }).toThrow();
-});
 
-test('validate all fields', ()=>{
-   expect(maichimplist.requiredFieldIsComplete({name:'Mayowa',contact:'1',permission_reminder:'yes',campaign_defaults:'yes'})).toBe(true);
-});

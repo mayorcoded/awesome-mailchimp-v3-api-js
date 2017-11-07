@@ -1,9 +1,9 @@
 import request from 'superagent';
-import Environment from './Environment';
+import Environment from '../utils/Environment';
 import MailchimpLists from './MailchimpLists';
 
 
-class MailChimp {
+export default class MailChimp {
 
     constructor(userName, apiKey) {
         this.env = new Environment(userName,apiKey);
@@ -24,5 +24,3 @@ class MailChimp {
     }
 }
 
-var m = new MailChimp('dfa','afa')
-m.call();
