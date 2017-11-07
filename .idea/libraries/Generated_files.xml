@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/dist/src/index.js" />
+        <item url="file://$PROJECT_DIR$/dist/utils/Verifyer.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/Environment.js" />
+        <item url="file://$PROJECT_DIR$/dist/utils/Environment.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/MailchimpLists.js" />
+        <item url="file://$PROJECT_DIR$/dist/test/MailchimpList.test.js" />
+        <item url="file://$PROJECT_DIR$/dist/test/Verifyer.test.js" />
+        <item url="file://$PROJECT_DIR$/dist/src/Verifyer.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/src/index.js" />
+      <root url="file://$PROJECT_DIR$/dist/utils/Verifyer.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/Environment.js" />
+      <root url="file://$PROJECT_DIR$/dist/utils/Environment.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/MailchimpLists.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/MailchimpList.test.js" />
+      <root url="file://$PROJECT_DIR$/dist/test/Verifyer.test.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/Verifyer.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
