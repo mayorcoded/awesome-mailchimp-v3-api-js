@@ -1,19 +1,36 @@
 import MailchimpLists from '../src/MailchimpLists';
 import MailChimp from '../src/index';
 
-let list = new  MailchimpLists(new MailChimp('mayowa.tuodnu','some key'));
+/**
+ * Remember to replace (email, api-key, list-id) with real values
+ */
 
-test('validate create method empty parameter ',() => {
-    expect(()=>{
-        list.create()
-    }).toThrow('Body of list is required');
+let mailChimp = new MailChimp('mayowa.tudonu@jumia.com','cb4d52d554a35f1fe92cbeeebc6b010e-us1');
+
+test('read mailchimp list with valid list id',()=>{
+    expect.assertions(1);
+
+    return mailChimp.list.readListInfo('ccb8a60b4b',{}).then(data => {
+        expect(data.status).toBe(200);
+    });
 });
 
-test('validate create method empty body parameter', () => {
-   expect(()=>{
-       list.create({name:'M',contact:'jd',permission_reminder:'jk',campaign_defaults:'ef'})
-   }).toThrow(/Hey/)
+test('read mailchimp list with invalid list id',()=>{
+    expect.assertions(1);
+
+    return mailChimp.list.readListInfo('invalid-id',{}).catch(error => {
+        expect(error.status).toBe(404);
+    });
 });
 
+test('create list',()=>{
+    expect.assertions(1);
 
-
+    return mailChimp.list.createList({'name':'Library Test List', 'contact':{'company':'Jumia'},"permission_reminder":"You signed the fuck up",
+        "campaign_defaults":{"from_name":"Freddie","from_email":"freddie@freddiehats.com","subject":"","language":"en"},
+        "email_type_option":true}).then((data)=>{
+        expect(data.status).toBe(200);
+    }).catch((error)=>{
+        expect(error.status).toBe(400);
+    })
+});

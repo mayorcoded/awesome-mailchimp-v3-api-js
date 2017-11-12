@@ -7,33 +7,33 @@ export default class MailchimpLists{
         this.mailchimp = mailchimpClient;
     }
 
-    create(body){
+    createList(body){
         verifyer.verifyBody(body);
-        verifyer.verifyRequiredFieldsInBody(body,['name', 'contact', 'permission_reminder', 'campaign_defaults']);
+        verifyer.verifyRequiredFieldsInBody(body,['name', 'contact', 'permission_reminder', 'campaign_defaults','email_type_option']);
 
         return this.mailchimp.call('POST','/lists',body);
     }
 
-    list(query){
+    readListsInfo(query){
         return this.mailchimp.call('GET', '/lists', query);
     }
 
-    read(id, query){
-        verifyer.verifyId(id);
+    readListInfo(id, query={}){
+        verifyer.verifyListId(id);
         return this.mailchimp.call('GET', `/lists/${id}`, query);
     }
 
-    update(id, body){
-        verifyer.verifyId(id)
+    updateList(id, body){
+        verifyer.verifyListId(id)
         return this.mailchimp.call('PATCH', `/lists/${id}`, body);
     }
 
-    delete(id){
+    deleteList(id){
         return this.mailchimp.call('DELETE', `/lists/${id}`);
     }
 
-    batch(id, body) {
-        verifyer.verifyId(id);
+    batchSubscribe(id, body) {
+        verifyer.verifyListId(id);
         verifyer.verifyRequiredFieldsInBody(body,['members']);
         return this.mailchimp.call('POST', `/lists/${id}`, body);
     }

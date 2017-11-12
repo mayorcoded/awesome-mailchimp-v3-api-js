@@ -22,39 +22,41 @@ var MailchimpLists = function () {
     }
 
     _createClass(MailchimpLists, [{
-        key: 'create',
-        value: function create(body) {
+        key: 'createList',
+        value: function createList(body) {
             _Verifyer2.default.verifyBody(body);
-            _Verifyer2.default.verifyRequiredFieldsInBody(body, ['name', 'contact', 'permission_reminder', 'campaign_defaults']);
+            _Verifyer2.default.verifyRequiredFieldsInBody(body, ['name', 'contact', 'permission_reminder', 'campaign_defaults', 'email_type_option']);
 
             return this.mailchimp.call('POST', '/lists', body);
         }
     }, {
-        key: 'list',
-        value: function list(query) {
+        key: 'readListsInfo',
+        value: function readListsInfo(query) {
             return this.mailchimp.call('GET', '/lists', query);
         }
     }, {
-        key: 'read',
-        value: function read(id, query) {
-            _Verifyer2.default.verifyId(id);
+        key: 'readListInfo',
+        value: function readListInfo(id) {
+            var query = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+            _Verifyer2.default.verifyListId(id);
             return this.mailchimp.call('GET', '/lists/' + id, query);
         }
     }, {
-        key: 'update',
-        value: function update(id, body) {
-            _Verifyer2.default.verifyId(id);
+        key: 'updateList',
+        value: function updateList(id, body) {
+            _Verifyer2.default.verifyListId(id);
             return this.mailchimp.call('PATCH', '/lists/' + id, body);
         }
     }, {
-        key: 'delete',
-        value: function _delete(id) {
+        key: 'deleteList',
+        value: function deleteList(id) {
             return this.mailchimp.call('DELETE', '/lists/' + id);
         }
     }, {
-        key: 'batch',
-        value: function batch(id, body) {
-            _Verifyer2.default.verifyId(id);
+        key: 'batchSubscribe',
+        value: function batchSubscribe(id, body) {
+            _Verifyer2.default.verifyListId(id);
             _Verifyer2.default.verifyRequiredFieldsInBody(body, ['members']);
             return this.mailchimp.call('POST', '/lists/' + id, body);
         }

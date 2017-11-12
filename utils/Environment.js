@@ -66,6 +66,6 @@ export default class Environment{
     }
 
     static defaults(){
-        return { VERSION:'3', DOMAIN:'.api.mailchimp.com', PROTOCOL:'https://'}
+        return { VERSION:'/3.0', DOMAIN:'.api.mailchimp.com', PROTOCOL:'https://'}
     }
 }
