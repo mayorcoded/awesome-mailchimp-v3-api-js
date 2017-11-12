@@ -5,7 +5,7 @@ import MailChimp from '../src/index';
  * Remember to replace (email, api-key, list-id) with real values
  */
 
-let mailChimp = new MailChimp('mayowa.tudonu@jumia.com','cb4d52d554a35f1fe92cbeeebc6b010e-us1');
+let mailChimp = new MailChimp('something@somthing.com','babjdi');
 
 test('read mailchimp list with valid list id',()=>{
     expect.assertions(1);
