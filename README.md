@@ -12,4 +12,33 @@ const Mailchimp = require('awesome-mailchimp-v3-api-js');
 // or ES6 import
 import Mailchimp from 'awesome-mailchimp-v3-api-js';
 ```
-...More readme to follow
+### API Examples
+Create a list
+```js
+const mailChimp = new MailChimp('email','api-key');
+
+const listData = {'name':'Library Test List',
+        'contact':{
+            'company':'Mailchimp',
+            'address1':'France',
+            'city':'Paris',
+            'state':'Paris',
+            'zip':'000',
+            'country':'France'
+        },
+        "permission_reminder":"You gave us permission",
+        "campaign_defaults":{
+            "from_name":",Mayowa",
+            "from_email":"Mayowa@mayor.com",
+            "subject":"New list created",
+            "language":"en"
+        },
+        "email_type_option":true
+    };
+
+mailChimp.list.createList(listData).then((data)=>{
+    console.log(data);
+}).catch((error)=>{
+    console.log(error);
+});
+```
