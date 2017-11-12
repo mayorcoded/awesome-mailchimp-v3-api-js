@@ -5,20 +5,15 @@ import MailChimp from '../src/index';
  * Remember to replace (email, api-key, list-id) with real values
  */
 
+
 let mailChimp = new MailChimp('email','api-key');
 
-test('read mailchimp list with valid list id',()=>{
+test('Get info about mailchimp list',()=>{
     expect.assertions(1);
 
-    return mailChimp.list.readListInfo('ccb8a60b4b',{}).then(data => {
+    return mailChimp.list.readListInfo('ccb8a60b4b',{}).then((data) => {
         expect(data.status).toBe(200);
-    });
-});
-
-test('read mailchimp list with invalid list id',()=>{
-    expect.assertions(1);
-
-    return mailChimp.list.readListInfo('invalid-id',{}).catch(error => {
+    }).catch((error) => {
         expect(error.status).toBe(404);
     });
 });

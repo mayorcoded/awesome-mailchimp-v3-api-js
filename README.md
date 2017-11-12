@@ -42,3 +42,12 @@ mailChimp.list.createList(listData).then((data)=>{
     console.log(error);
 });
 ```
+Get info about a list
+```js
+mailChimp.list.readListInfo('ccb8a60b4b',{}).then((data) => {
+        console.log(data);
+    }).catch((error) => {
+        console.log(data);
+    });
+```
+--- More examples in the test folder. ---
