@@ -18,7 +18,7 @@ var MailchimpMembers = function () {
     function MailchimpMembers(mailchimpClient) {
         _classCallCheck(this, MailchimpMembers);
 
-        this.mailchimp = mailchimpClient();
+        this.mailchimp = mailchimpClient;
     }
 
     _createClass(MailchimpMembers, [{

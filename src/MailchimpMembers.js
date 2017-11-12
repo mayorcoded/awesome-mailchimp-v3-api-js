@@ -4,7 +4,7 @@ import verifyer from '../utils/Verifyer';
 export default class MailchimpMembers{
 
     constructor(mailchimpClient){
-        this.mailchimp = mailchimpClient();
+        this.mailchimp = mailchimpClient;
     }
 
     addMembers(listId , body){

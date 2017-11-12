@@ -1,4 +1,3 @@
-import MailchimpLists from '../src/MailchimpLists';
 import MailChimp from '../src/index';
 
 /**

@@ -18,6 +18,26 @@ var _MailchimpLists = require('./MailchimpLists');
 
 var _MailchimpLists2 = _interopRequireDefault(_MailchimpLists);
 
+var _MailchimpCampaigns = require('./MailchimpCampaigns');
+
+var _MailchimpCampaigns2 = _interopRequireDefault(_MailchimpCampaigns);
+
+var _MailchimpMembers = require('./MailchimpMembers');
+
+var _MailchimpMembers2 = _interopRequireDefault(_MailchimpMembers);
+
+var _MailchimpMergeFields = require('./MailchimpMergeFields');
+
+var _MailchimpMergeFields2 = _interopRequireDefault(_MailchimpMergeFields);
+
+var _MailchimpSegments = require('./MailchimpSegments');
+
+var _MailchimpSegments2 = _interopRequireDefault(_MailchimpSegments);
+
+var _MailchimpWebhooks = require('./MailchimpWebhooks');
+
+var _MailchimpWebhooks2 = _interopRequireDefault(_MailchimpWebhooks);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28,6 +48,11 @@ var MailChimp = function () {
 
         this.env = new _Environment2.default(userName, apiKey);
         this.list = new _MailchimpLists2.default(this);
+        this.campaigns = new _MailchimpCampaigns2.default(this);
+        this.members = new _MailchimpMembers2.default(this);
+        this.mergefields = new _MailchimpMergeFields2.default(this);
+        this.segments = new _MailchimpSegments2.default(this);
+        this.webhooks = new _MailchimpWebhooks2.default(this);
     }
 
     _createClass(MailChimp, [{

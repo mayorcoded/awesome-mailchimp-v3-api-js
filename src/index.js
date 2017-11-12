@@ -1,13 +1,22 @@
 import request from 'superagent';
 import Environment from '../utils/Environment';
 import MailchimpLists from './MailchimpLists';
-
+import MailchimpCampaigns from  './MailchimpCampaigns';
+import MailchimpMembers from './MailchimpMembers';
+import MailchimpMergeFields from './MailchimpMergeFields';
+import MailchimpSegments from './MailchimpSegments';
+import MailchimpWebhooks from './MailchimpWebhooks';
 
 export default class MailChimp {
 
     constructor(userName, apiKey) {
         this.env = new Environment(userName,apiKey);
         this.list = new MailchimpLists(this);
+        this.campaigns = new MailchimpCampaigns(this);
+        this.members = new MailchimpMembers(this);
+        this.mergefields = new MailchimpMergeFields(this);
+        this.segments = new MailchimpSegments(this);
+        this.webhooks = new MailchimpWebhooks(this);
     }
 
     call(http, method, params){
