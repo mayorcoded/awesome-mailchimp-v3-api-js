@@ -5,7 +5,7 @@ import MailChimp from '../src/index';
  * Remember to replace (email, api-key, list-id) with real values
  */
 
-let mailChimp = new MailChimp('something@somthing.com','babjdi');
+let mailChimp = new MailChimp('email','api-key');
 
 test('read mailchimp list with valid list id',()=>{
     expect.assertions(1);
@@ -23,14 +23,34 @@ test('read mailchimp list with invalid list id',()=>{
     });
 });
 
-test('create list',()=>{
+test('Create new list',()=>{
     expect.assertions(1);
 
-    return mailChimp.list.createList({'name':'Library Test List', 'contact':{'company':'Jumia'},"permission_reminder":"You signed the fuck up",
-        "campaign_defaults":{"from_name":"Freddie","from_email":"freddie@freddiehats.com","subject":"","language":"en"},
-        "email_type_option":true}).then((data)=>{
-        expect(data.status).toBe(200);
+    const listData = {'name':'Library Test List',
+        'contact':{
+            'company':'Mailchimp',
+            'address1':'France',
+            'city':'Paris',
+            'state':'Paris',
+            'zip':'000',
+            'country':'France'
+        },
+        "permission_reminder":"You gave us permission",
+        "campaign_defaults":{
+            "from_name":",Mayowa",
+            "from_email":"Mayowa@mayor.com",
+            "subject":"New list created",
+            "language":"en"
+        },
+        "email_type_option":true
+    };
+
+    return mailChimp.list.createList(listData).then((data)=>{
+        /**
+         * write your other codes here
+         */
+        expect(data.status).toBe(200); /*Test code - You can ignore this line of code*/
     }).catch((error)=>{
-        expect(error.status).toBe(400);
+        expect(error.status).toBe(400); /*Test code - You can ignore this line of code*/
     })
 });
