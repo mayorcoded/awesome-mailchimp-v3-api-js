@@ -66,7 +66,7 @@ var MailChimp = function () {
         key: 'makeRequest',
         value: function makeRequest(http, params, request) {
             var requestType = { 'POST': request.send(params), 'PATCH': request.send(params), 'GET': request.query(params) };
-            return requestType[http];
+            return requestType[http] || request;
         }
     }]);
 

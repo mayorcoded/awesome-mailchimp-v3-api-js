@@ -9,7 +9,7 @@ export default class MailchimpMembers{
 
     addMembers(listId , body){
         verifyer.verifyListId(listId);
-        verifyer.verifyRequiredFieldsInBody(body, ['email', 'status']);
+        verifyer.verifyRequiredFieldsInBody(body, ['email_address', 'status']);
 
         return this.mailchimp.call('POST',`/lists/${listId}/members`,body);
     }

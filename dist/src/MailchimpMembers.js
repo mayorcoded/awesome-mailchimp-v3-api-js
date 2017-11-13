@@ -25,7 +25,7 @@ var MailchimpMembers = function () {
         key: 'addMembers',
         value: function addMembers(listId, body) {
             _Verifyer2.default.verifyListId(listId);
-            _Verifyer2.default.verifyRequiredFieldsInBody(body, ['email', 'status']);
+            _Verifyer2.default.verifyRequiredFieldsInBody(body, ['email_address', 'status']);
 
             return this.mailchimp.call('POST', '/lists/' + listId + '/members', body);
         }
