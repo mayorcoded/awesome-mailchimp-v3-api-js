@@ -28,7 +28,8 @@ export default class MailChimp {
     }
 
     static makeRequest(http, params,request ){
-        const requestType = {'POST': request.send(params), 'PATCH':request.send(params), 'GET':request.query(params)};
+        const requestType = {'POST': request.send(params), 'PATCH':request.send(params),
+            'GET':request.query(params)};
         return requestType[http]||request;
     }
 }

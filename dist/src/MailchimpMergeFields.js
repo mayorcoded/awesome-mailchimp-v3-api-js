@@ -25,7 +25,7 @@ var MailchimpMergeFields = function () {
         key: 'addMergeFields',
         value: function addMergeFields(listId, body) {
             _Verifyer2.default.verifyListId(listId);
-
+            _Verifyer2.default.verifyRequiredFieldsInBody(body, ['name', 'type']);
             return this.mailchimp.call('POST', '/lists/' + listId + '/merge-fields', body);
         }
     }, {
@@ -39,6 +39,15 @@ var MailchimpMergeFields = function () {
             return this.mailchimp.call('GET', '/lists/' + listId + '/merge-fields/' + mergeId, query);
         }
     }, {
+        key: 'readMergeFieldsInfo',
+        value: function readMergeFieldsInfo(listId) {
+            var query = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+            _Verifyer2.default.verifyListId(listId);
+
+            return this.mailchimp.call('GET', '/lists/' + listId + '/merge-fields', query);
+        }
+    }, {
         key: 'updateMergeField',
         value: function updateMergeField(listId, mergeId, body) {
             _Verifyer2.default.verifyListId(listId);
@@ -48,10 +57,11 @@ var MailchimpMergeFields = function () {
         }
     }, {
         key: 'deleteMergeField',
-        value: function deleteMergeField(listId, mergerId) {
+        value: function deleteMergeField(listId, mergeId) {
             _Verifyer2.default.verifyListId(listId);
+            _Verifyer2.default.verifyMergeId(mergeId);
 
-            return this.mailchimp.call('DELETE', '/lists/' + listId + '/merge-fields/' + mergerId);
+            return this.mailchimp.call('DELETE', '/lists/' + listId + '/merge-fields/' + mergeId);
         }
     }]);
 
