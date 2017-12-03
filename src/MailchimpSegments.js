@@ -1,7 +1,7 @@
 'use strict';
 import verifyer from '../utils/Verifyer';
 
-export default class MailchimpSegments{
+ export default class MailchimpSegments{
 
     constructor(MailchimpClient){
         this.mailchimp = MailchimpClient;
