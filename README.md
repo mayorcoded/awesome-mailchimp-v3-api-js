@@ -44,7 +44,7 @@ mailChimp.list.createList(listData).then((data)=>{
 ```
 Get info about a list
 ```js
-mailChimp.list.readListInfo('ccb8a60b4b',{}).then((data) => {
+mailChimp.list.readListInfo('list-id',{}).then((data) => {
         console.log(data);
     }).catch((error) => {
         console.log(error);
