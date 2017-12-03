@@ -1,6 +1,6 @@
 {
   "name": "awesome-mailchimp-v3-api-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple and awesome library for Mailchimp API V3 written in Js",
   "main": "index.js",
   "scripts": {
