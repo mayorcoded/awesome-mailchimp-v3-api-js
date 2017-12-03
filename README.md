@@ -83,4 +83,4 @@ mailChimp.members.deleteMember('list-id', 'subscriber-hash').then((data)=>{
     })
 ```
 
---- More examples in the test folder. ---
+---Check for more examples in the test folder. ---
