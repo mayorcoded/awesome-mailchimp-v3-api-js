@@ -47,7 +47,40 @@ Get info about a list
 mailChimp.list.readListInfo('ccb8a60b4b',{}).then((data) => {
         console.log(data);
     }).catch((error) => {
-        console.log(data);
+        console.log(error);
     });
 ```
+Subscribe Members to a list
+```js
+mailChimp.members.addMembers('list-id',body).then((data)=>{
+        console.log(data);
+    }).catch((error)=>{
+        console.log(error);
+    })
+```
+Batch Subscribe members to a list
+```js
+mailChimp.list.batchSubscribe('list-id',body).then((data) =>{
+        console.log(data);
+    }).catch((error)=>{
+        console.log(error);
+    });
+```
+Update Member info
+```js
+mailChimp.members.updateMemberInfo('list-id', 'subscriber-hash',body).then((data)=>{
+        console.log(data);
+    }).catch((error)=>{
+        console.log(error);
+    })
+```
+Delete Member
+```js
+mailChimp.members.deleteMember('list-id', 'subscriber-hash').then((data)=>{
+        console.log(data);
+    }).catch((error)=>{
+        console.log(error);
+    })
+```
+
 --- More examples in the test folder. ---
